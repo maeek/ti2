@@ -15,4 +15,14 @@ W ramach realizacji zadania utwórz dokument podzielony na obszary:
 
 ## Projekt
 
+### Cel powstania
 
+### Technologie wykonania
+
+### Przeglądarki internetowe i systemy
+
+### Wymagania sprzętowe
+
+### Konstrukcja witryny (mapa serwisu)
+
+### Układ strony/stron
