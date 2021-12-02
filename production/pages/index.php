@@ -8,21 +8,14 @@
   <title>Pasibrzuch - kuchnia polska</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;700&family=Sail&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;700&family=Sail&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/base.css" />
 </head>
 
 <body>
   <div class="wrapper">
     <header class="heading">
-      <img
-        src="./assets/logo.svg"
-        alt="Pasibrzuch - kuchnia polska logo"
-        class="heading-logo"
-      />
+      <img src="./assets/logo.svg" alt="Pasibrzuch - kuchnia polska logo" class="heading-logo" />
       <div class="heading-typo">
         <h1>Pasibrzuch</h1>
         <p>Jedzenie na każdą okazję</p>
@@ -42,7 +35,7 @@
           </figure>
           <button>Zamów</button>
         </article>
-  
+
         <article class="menu-item">
           <figure>
             <picture>
@@ -52,7 +45,7 @@
           </figure>
           <button>Zamów</button>
         </article>
-  
+
         <article class="menu-item">
           <figure>
             <picture>
@@ -62,7 +55,7 @@
           </figure>
           <button>Zamów</button>
         </article>
-  
+
         <article class="menu-item">
           <figure>
             <picture>
@@ -72,7 +65,7 @@
           </figure>
           <button>Zamów</button>
         </article>
-  
+
         <article class="menu-item">
           <figure>
             <picture>
@@ -82,7 +75,7 @@
           </figure>
           <button>Zamów</button>
         </article>
-  
+
         <article class="menu-item">
           <figure>
             <picture>
@@ -95,31 +88,7 @@
       </section>
     </main>
 
-    <footer>
-      <section class="contact">
-        <p>Kontakt: +22 6942000</p>
-        <p>Centrum Królewska, Marszałkowska 142, 00-061 Warszawa</p>
-        <img class="map" src="assets/map-mock.png" alt="Map" draggable="false" />
-      </section>
-      <section class="shortcuts">
-        <nav>
-          <ul>
-            <li>
-              <a href="/zamowienia">Zamówienia</a>
-            </li>
-            <li>
-              <a href="/menu">Menu</a>
-            </li>
-            <li>
-              <a href="/events">Obsługa eventów</a>
-            </li>
-            <li>
-              <a href="/login">Zaloguj się</a>
-            </li>
-          </ul>
-        </nav>
-      </section>
-    </footer>
+    <?php include_once('./components/footer.php') ?>
   </div>
 </body>
 

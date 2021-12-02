@@ -20,6 +20,11 @@ body {
   padding-block: 0.5em;
 }
 
+.heading a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .heading-logo {
   width: 6em;
 }
@@ -47,7 +52,7 @@ main {
 }
 
 main h2 {
-  margin: 1em;
+  margin: 1rem;
 }
 
 main section {
@@ -71,42 +76,6 @@ main section {
   main section {
     grid-template-columns: 1fr;
   }
-}
-
-.menu-item {
-  width: 18em;
-  display: flex;
-  flex-direction: column;
-  margin: 1em;
-}
-
-.menu-item figure {
-  margin: 0;
-}
-
-.menu-item picture {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-item picture img {
-  width: 18em;
-  height: 18em;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.menu-item figcaption {
-  padding: 0.75em 0;
-  font-size: 1.2rem;
-}
-
-.menu-item button {
-  font-size: 1.1rem;
-  background-color: orange;
-  border: 0;
-  padding: 0.5em 0.3em;
 }
 
 footer {
