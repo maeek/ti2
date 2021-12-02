@@ -52,11 +52,11 @@ Strona hostowana będzie na serwerza apache wykupionym w zewnętrznej usłudze (
 
 ### Konstrukcja witryny (mapa serwisu)
 
-![Mapa serwisu](/mapa.png)
+![Mapa serwisu](/docs/mapa.png)
 
 ### Układ strony/stron
 
-![Gui](/gui-1.png)
-![Gui](/gui-2.png)
-![Gui](/gui-3.png)
-![Gui](/gui-4.png)
+![Gui](/docs/gui-1.png)
+![Gui](/docs/gui-2.png)
+![Gui](/docs/gui-3.png)
+![Gui](/docs/gui-4.png)
