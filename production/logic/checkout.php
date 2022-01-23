@@ -15,3 +15,8 @@ function set_checkout($checkout)
 {
   setcookie('checkout', json_encode($checkout), time() + (60 * 60), "/", "", false, true);
 }
+
+function reset_checkout()
+{
+  setcookie('checkout', '', time() - 3600, "/", "", false, true);
+}

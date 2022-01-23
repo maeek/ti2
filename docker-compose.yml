@@ -19,14 +19,10 @@ services:
   mysql:
     image: mariadb:latest
     hostname: mysql
-    user: 0:0
     networks:
       - backend
     env_file:
       - .env
-    environment:
-      - PUID=0
-      - PGID=0
     restart: always
     volumes:
       - ./database:/var/lib/mysql
