@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restauracja Pasibrzuch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;500;700&family=Sail&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/base.css" />
+</head>
+<body>
+
+  <header>
+    <div class="flex-container flex-spc-btw flex-top header">
+      <div class="heading-container">
+        <h1>Restauracja Pasibrzuch</h1>
+        <nav class="page-nav">
+          <ul id="page-nav">
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="pages/orders.html">Zamówienia</a></li>
+            <li id="loginHref"><a href="pages/signin.html">Logowanie</a></li>
+            <li id="regHref"><a href="pages/signup.html">Rejestracja</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="heading-right">
+        <a id="basket" href="checkout.html">
+          Koszyk (<span id="basketCounter">0</span>)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <script type="module">
+    import { logout } from '../js/api/service.js';
+
+    await logout();
+    location.href = '../index.html';
+  </script>
+</body>
+</html>

@@ -3,6 +3,7 @@ services:
   apache:
     build: .
     hostname: php-app
+    user: "33:33"
     ports:
       - "80:80"
     networks:
@@ -12,9 +13,13 @@ services:
       - mysql
     env_file:
       - .env
+    environment:
+      - PUID=33
+      - PGID=33
     restart: always
     volumes:
-      - ./production:/var/www/html
+      - ./production/api/:/var/www/api/
+      - ./production/public/:/var/www/html
   
   mysql:
     image: mariadb:latest
@@ -26,7 +31,7 @@ services:
     restart: always
     volumes:
       - ./database:/var/lib/mysql
-      - ./db_schema.sql:/docker-entrypoint-initdb.d/db_schema.sql
+      # - ./db_schema.sql:/docker-entrypoint-initdb.d/db_schema.sql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

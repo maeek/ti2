@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restauracja Pasibrzuch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;500;700&family=Sail&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/base.css" />
+</head>
+<body>
+
+  <header>
+    <div class="flex-container flex-spc-btw flex-top header">
+      <div class="heading-container">
+        <h1>Restauracja Pasibrzuch</h1>
+        <nav class="page-nav">
+          <ul id="page-nav">
+            <li><a href="../index.html">Strona główna</a></li>
+            <li><a href="orders.html">Zamówienia</a></li>
+            <li id="loginHref"><a href="signin.html">Logowanie</a></li>
+            <li id="regHref"><a href="signup.html">Rejestracja</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="heading-right">
+        <a id="basket" href="checkout.html">
+          Koszyk (<span id="basketCounter">0</span>)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Witaj na stronie restauracji Pasibrzuch!</h2>
+        <p>Zapraszamy do zapoznania się z naszą ofertą!</p>
+        <div class="scroll-indicator" id="scroll-indicator"></div>
+      </div>
+    </section>
+
+    <section id="menu-container" class="menu-container">
+      <h3>Nasza oferta</h3>
+      <p>Zapraszamy do zapoznania się z naszą ofertą!</p>
+
+      <ul class="menu" id="menu"></ul>
+    </section>    
+
+  </main>
+
+  <footer>
+    <section class="flex-container flex-spc-btw flex-top footer">
+      <article class="aboutus">
+        <h3>O nas</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Pellentesque euismod, nisi vel consectetur interdum,
+          nisl nunc egestas nisi, euismod aliquam nisl nunc eu
+          nisi.
+        </p>
+      </article>
+      <article>
+        <h3>Kontakt</h3>
+        <p>ul. Krakowska 1</p>
+        <p>+48 123 456 789</p>
+        <p>
+          <a href="mailto:kontakt@pasibrzuch.domena">kontakt@pasibrzuch.domena</a>
+        </p>
+      </article>
+      <article>
+        <h3>Znajdź nas na:</h3>
+        <p>
+          <a href="https://www.facebook.com/">Facebook</a>
+        </p>
+        <p>
+          <a href="https://www.instagram.com/">Instagram</a>
+        </p>
+      </article>
+    </section>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
