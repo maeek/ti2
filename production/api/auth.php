@@ -43,13 +43,7 @@ function register($username, $password, $name, $email, $address)
   $result = $connect_to_db->query($sql);
 
   if ($result) {
-    session_start([
-      'cookie_lifetime' => 86400
-    ]);
-
-    setcookie('username', $username, time() + 86400);
-
-    echo json_encode(['success' => true]);
+    login($username, $password);
     return;
   }
 
@@ -72,6 +66,11 @@ function login($username, $password)
   $result = $connect_to_db->query($sql);
 
   if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      $_SESSION['username'] = $row['USERNAME'];
+      $_SESSION['id'] = $row['ID'];
+    }
+
     setcookie('username', $username, time() + 86400);
 
     echo json_encode(['success' => true]);

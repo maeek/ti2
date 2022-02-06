@@ -21,12 +21,23 @@ CREATE TABLE ORDERS (
   ID int PRIMARY key not null AUTO_INCREMENT,
     USER_ID int not null,
     ORDER_DATE datetime not null,
-    STATUS varchar(255) not null
+    STATUS varchar(255) not null,
+    DETAILS text
 );
 
-CREATE TABLE ORDER_DETAILS (
-  ID int PRIMARY key not null AUTO_INCREMENT,
-    ORDER_ID int not null,
-    DISH_ID int not null,
-    QUANTITY int not null
-);
+INSERT INTO DISHES (NAME, DESCRIPTION, PRICE, IMAGE) VALUES
+('Pizza Margherita', 'Pizza Margherita', '10', 'pizza_margherita.jpg'),
+('Pizza Napoletana', 'Pizza Napoletana', '10', 'pizza_napoletana.jpg'),
+('Pizza Quattro Stagioni', 'Pizza Quattro Stagioni', '10', 'pizza_quattro_stagioni.jpg'),
+('Pizza Funghi', 'Pizza Funghi', '10', 'pizza_funghi.jpg'),
+('Pizza Prosciutto', 'Pizza Prosciutto', '10', 'pizza_prosciutto.jpg'),
+('Pizza Quattro Formaggi', 'Pizza Quattro Formaggi', '10', 'pizza_quattro_formaggi.jpg'),
+('Pizza Vegetariana', 'Pizza Vegetariana', '10', 'pizza_vegetariana.jpg'),
+('Pizza Frutti di Mare', 'Pizza Frutti di Mare', '10', 'pizza_frutti_di_mare.jpg'),
+('Pizza Quattro Formaggi', 'Pizza Quattro Formaggi', '10', 'pizza_quattro_formaggi.jpg'),
+('Pizza Quattro Stagioni', 'Pizza Quattro Stagioni', '10', 'pizza_quattro_stagioni.jpg'),
+('Pizza Prosciutto', 'Pizza Prosciutto', '10', 'pizza_prosciutto.jpg'),
+('Pizza Vegetariana', 'Pizza Vegetariana', '10', 'pizza_vegetariana.jpg'),
+('Pizza Frutti di Mare', 'Pizza Frutti di Mare', '10', 'pizza_frutti_di_mare.jpg'),
+('Pizza Margherita', 'Pizza Margherita', '10', 'pizza_margherita.jpg'),
+('Pizza Napoletana', 'Pizza Napoletana', '10', 'pizza_napo.jpg');

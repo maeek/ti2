@@ -34,21 +34,19 @@
   </header>
 
   <main id="content">
-    <section class="hero">
-      <div class="hero-text">
-        <h2>Witaj na stronie restauracji Pasibrzuch!</h2>
-        <p>Zapraszamy do zapoznania się z naszą ofertą!</p>
-        <div class="scroll-indicator" id="scroll-indicator"></div>
-      </div>
-    </section>
+    <h3>Twój koszyk</h3>
+    <p></p>
 
-    <section id="menu-container" class="menu-container">
-      <h3>Nasza oferta</h3>
-      <p>Zapraszamy do zapoznania się z naszą ofertą!</p>
+    <table style="max-width: 1200px; width: 100%;" id="basketTable">
+      <tr style="text-align: left;">
+        <th>Lp.</th>
+        <th>Danie</th>
+        <th>Ilosć</th>
+        <th>Cena</th>
+      </tr>
+    </table>
 
-      <ul class="menu" id="menu"></ul>
-    </section>    
-
+    <button id="checkoutBtn" class="btn">Złóż zamówienie</button>
   </main>
 
   <footer>
@@ -82,6 +80,45 @@
     </section>
   </footer>
 
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module">
+    import { getCookie } from '../js/api/cookies.js';
+    import { appendToDom, templateToHtml } from "../js/domUtils.js";
+    import { getBasket, placeOrder } from "../js/api/service.js";
+
+    if (!getCookie('username')) {
+      location.href = 'signin.html';
+    }
+
+    const currentBasket = Object.values(await getBasket()).filter(i => i.quantity > 0);
+    
+    const basket = document.getElementById('basketTable');
+
+    const rowTemplate = (lp, item, quantity, price) => `
+    <tr>
+      <td>${lp}</td>
+      <td>${item}</td>
+      <td>${quantity}</td>
+      <td>${price} zł</td>
+    </tr>`;
+
+    currentBasket.forEach((item, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = rowTemplate(index + 1, item.name, item.quantity, item.price);
+      appendToDom(tr, basket);
+    });
+
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    checkoutBtn.addEventListener('click', async () => {
+
+      const basket = Object.values(await getBasket()).filter(i => i.quantity > 0);
+      const basketIds = basket.map(i => ({ quantity: i.quantity, name: i.name, price: i.price }));
+
+      await placeOrder({ ids: basketIds });
+      
+      window.location.href = 'orders.html';
+    });
+
+  </script>
 </body>
 </html>

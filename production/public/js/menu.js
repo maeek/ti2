@@ -1,4 +1,4 @@
-import { addToBasket, getBasket } from "./api/service.js";
+import { addToBasket, getBasket, getMenuItems } from "./api/service.js";
 import { appendToDom, templateToHtml } from "./domUtils.js";
 
 const domMenu = document.getElementById('menu');
@@ -21,11 +21,9 @@ const addItem = async (evt) => {
 
   await addToBasket(id, 1);
   const currentBasket = await getBasket();
-
   const basketCounter = document.getElementById('basketCounter');
   const count = Object.values(currentBasket);
-
-  basketCounter.innerText = count.reduce((acc, curr) => acc + curr, 0);
+  basketCounter.innerText = count.reduce((acc, curr) => acc + curr.quantity, 0);
 }
 
 export const appendMenuItem = (itemId, itemName, itemDesc, itemPrice) => {
@@ -39,4 +37,10 @@ export const appendMenuItem = (itemId, itemName, itemDesc, itemPrice) => {
   }
 }
 
+export const getMenu = async () => {
+  const items = await getMenuItems();
 
+  Object.values(items).forEach(item => {
+    appendMenuItem(item.id, item.name, item.description, item.price);
+  });
+}

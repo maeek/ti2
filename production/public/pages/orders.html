@@ -39,7 +39,7 @@
       <h3>Twoje Zamówienia</h3>
       <p></p>
 
-      <table style="max-width: 1200px; width: 100%;" id="">
+      <table style="max-width: 1200px; width: 100%;" id="orders">
         <tr style="text-align: left;">
           <th>Lp.</th>
           <th>Data</th>
@@ -47,12 +47,7 @@
           <th>Suma</th>
           <th>Szczegóły</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>2020-05-01</td>
-          <td>Zrealizowane</td>
-          <td>100 zł</td>
-          <td>1x kotlet schabowy</td>
+        
       </table>
     </section>    
 
@@ -91,11 +86,39 @@
 
   <script type="module" src="../js/main.js"></script>
   <script type="module">
-    import { getCookie } from '../js/cookies.js';
+    import { getCookie } from '../js/api/cookies.js';
+    import { appendToDom, templateToHtml } from "../js/domUtils.js";
+    import { getOrders, getMenuItems } from "../js/api/service.js";
 
     if (!getCookie('username')) {
       location.href = 'signin.html';
     }
+
+    const orders = document.getElementById('orders');
+
+    const rowTemplate = (lp, date, status, price, details) => `
+    <tr>
+      <td>${lp}</td>
+      <td>${date}</td>
+      <td>${status}</td>
+      <td>${price} zł</td>
+      <td>${details}</td>
+    </tr>`;
+
+    const yourOrders = await getOrders();
+    const items = await getMenuItems();
+
+    Object.values(yourOrders).forEach((order, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = rowTemplate(
+        index + 1,
+        order.date,
+        order.status,
+        order.details.reduce((acc, item) => acc + (parseInt(item.price) * parseInt(item.quantity)), 0),
+        order.details.reduce((acc, item) => acc + item.name + `(x${item.quantity})` + ', ', '')
+      );
+      appendToDom(tr, orders);
+    });
   </script>
 </body>
 </html>

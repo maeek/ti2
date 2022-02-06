@@ -44,3 +44,15 @@ export const login = (data) => {
 export const logout = () => {
   return httpPost('/index.php?logout');
 }
+
+export const placeOrder = (data) => {
+  return httpPost('/index.php?order', {
+    body: data
+  })
+    .then(response => response.json());
+}
+
+export const getOrders = async () => {
+  return httpGet('/index.php?orders')
+    .then(response => response.json());
+}

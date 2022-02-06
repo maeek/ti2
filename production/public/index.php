@@ -6,5 +6,6 @@ session_start([
 
 require_once '../api/auth.php';
 require_once '../api/orders.php';
+require_once '../api/menu.php';
 
 header('Location: index.html');

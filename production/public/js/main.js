@@ -6,7 +6,7 @@ import { appendMenuItem } from './menu.js';
 const domContent = document.getElementById('content');
 const basketCounter = document.getElementById('basketCounter');
 
-appendMenuItem(1, 'Kotlet z kurczakiem', 'Kotlet z kurczakiem, szynka, cebula, pieprz, pieprz czarny, oliwa z oliwek', '15.00');
+// appendMenuItem(1, 'Kotlet z kurczakiem', 'Kotlet z kurczakiem, szynka, cebula, pieprz, pieprz czarny, oliwa z oliwek', '15.00');
 
 const fetchItems = async () => {
   const items = await getMenuItems();
@@ -32,9 +32,7 @@ if (getCookie('username')) {
   hideLogin();
 
   const currentBasket = await getBasket();
-
   const basketCounter = document.getElementById('basketCounter');
   const count = Object.values(currentBasket);
-
-  basketCounter.innerText = count.reduce((acc, curr) => acc + curr, 0);
+  basketCounter.innerText = count.reduce((acc, curr) => acc + curr.quantity, 0);
 }
